@@ -7,10 +7,14 @@ main {
   padding: 10px;
 }
 
+/* 
+Première grid pour le layout "général"
+*/
 .grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px 1fr;
+  /* Une ligne de 60px pour la navbar, la deuxième ligne prendra tout l'espace disponible */
 }
 
 .container {
@@ -74,6 +78,10 @@ header nav a:hover {
   color: tomato;
 }
 
+/* Début des media queries pour gérer les tailles d'écran */
+/* Attention à l'ordre des queries pour gérer les conflits entre règles */
+
+/* Écran de plus de 1600px */
 @media screen and (min-width: 1600px) {
   .item {
     max-width: none;
@@ -83,17 +91,21 @@ header nav a:hover {
   }
 }
 
+/* Écran de plus de moins de 1200px */
 @media screen and (max-width: 1200px) {
   .container {
     grid-template-columns: repeat(3, 250px);
   }
 }
 
+/* Écran de plus de moins de 800px */
 @media screen and (max-width: 800px) {
   .container {
     grid-template-columns: repeat(2, 250px);
   }
 }
+
+/* Écran de plus de moins de 600px */
 @media screen and (max-width: 600px) {
   .container {
     grid-template-columns: 1fr;
@@ -109,7 +121,6 @@ header nav a:hover {
   .item img {
     height: 200px;
     width: 100%;
-
     object-fit: cover;
   }
 }
