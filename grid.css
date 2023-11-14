@@ -94,7 +94,7 @@ header nav a:hover {
 /* Écran de plus de moins de 1200px */
 @media screen and (max-width: 1200px) {
   .container {
-    grid-template-columns: repeat(3, 250px);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
