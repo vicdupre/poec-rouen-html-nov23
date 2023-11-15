@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="form.css" rel="stylesheet" type="text/css" />
+    <title>Formulaire</title>
+  </head>
+  <body>
+    <form action="#" method="get">
+      <label for="name">Nom:</label>
+      <input
+        placeholder="Entrez votre nom"
+        type="text"
+        id="name"
+        name="name"
+        required
+      />
+      <label for="option">Option</label>
+      <select id="option" name="option">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+        <option value="3">Option 3</option>
+      </select>
+      <div>
+        <input type="checkbox" id="check" name="check" checked />
+        <label for="check">Ceci est une checkbox</label>
+      </div>
+
+      <div>
+        <input type="radio" id="jaune" name="color" value="jaune" />
+        <label for="jaune">Jaune</label>
+      </div>
+      <div>
+        <input type="radio" id="bleu" name="color" value="bleu" />
+        <label for="bleu">Bleu</label>
+      </div>
+
+      <label for="password">Mot de passe</label>
+      <input type="password" id="password" name="password" />
+      <input type="file" hidden />
+
+      <button type="submit">Envoyer</button>
+      <button type="reset">Reset</button>
+    </form>
+  </body>
+</html>
