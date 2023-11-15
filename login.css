@@ -1,0 +1,22 @@
+.container {
+  padding-top: 5%;
+}
+
+form input {
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin: 15px 0;
+}
+
+.card {
+  width: clamp(250px, 50%, 600px);
+  /* Equivalent à : 
+    width : 50%;
+    max-width: 600px;
+    min-width: 250px;
+  */
+
+  margin: 0 auto;
+}
