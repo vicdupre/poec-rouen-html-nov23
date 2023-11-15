@@ -3,6 +3,10 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+.btn-primary {
+  background-color: yellow;
+}
+
 main {
   padding: 10px;
 }
