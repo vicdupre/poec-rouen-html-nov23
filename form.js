@@ -1,20 +1,17 @@
-console.log("Bonjour");
+const form = document.querySelector("form");
 
-const btn = document.querySelector("button");
+form.onsubmit = function (event) {
+  //On bloque le comportement naturel du navigateur
+  event.preventDefault();
+  console.log("Formulaire envoyé");
+  console.log(form);
+  //On récupère les valeurs du formulaire
+  const formData = new FormData(form);
+  //On transforme le formData en objet plus facilement utilisable
+  const data = Object.fromEntries(formData);
+  // output as an object
+  console.log(data);
 
-const handleClick = (event) => {
-  event.target.innerHTML = "Chargement...";
-  setTimeout(function () {
-    event.target.innerHTML = "Connexion";
-  }, 1500);
+  //On enregistre dans le stockage du navigateur nos informations sous forme de chaine de caractères
+  localStorage.setItem("user", JSON.stringify(data));
 };
-
-btn.addEventListener("click", handleClick);
-
-/* btn.onclick = (event) => {
-  console.log(event);
-  btn.innerHTML = "Chargement...";
-  setTimeout(function () {
-    btn.innerHTML = "Connexion";
-  }, 1500);
-}; */

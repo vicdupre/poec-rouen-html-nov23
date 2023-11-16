@@ -112,3 +112,12 @@ new Promise((resolve, reject) => {
 console.log(multiply(2, 5));
 //console.log(add(2, 5));
 console.log(divide(2, 5));
+
+const bootstrapAlert = document.querySelector("div.alert.alert-primary");
+
+const userData = localStorage.getItem("user");
+
+if (userData) {
+  const data = JSON.parse(userData);
+  bootstrapAlert.innerHTML = "Bienvenue " + data.email;
+}
