@@ -17,8 +17,8 @@
 .grid .big-item {
   background-color: red;
   /* On prend 2 colonnes, indépendamment de la position de l'enfant */
-  grid-column: 1/-1;
+  grid-column: span 3/ auto;
 
   /* On prend 2 lignes, indépendamment de la position de l'enfant */
-  grid-row: 1/2;
+  grid-row: 1/3;
 }
