@@ -3,9 +3,7 @@ import { divide } from "./operations.js";
 
 const fruits = ["Fraise", "Citron", "Ananas", "Pêche"];
 
-const container = document.querySelector(".container");
-
-fruits.forEach((fruit) => {
+/* fruits.forEach((fruit) => {
   container.innerHTML += `<article class="item">
     <img
       src="https://img.cuisineaz.com/660x660/2015/01/29/i113699-photo-de-crepe-facile.jpeg"
@@ -15,7 +13,47 @@ fruits.forEach((fruit) => {
       <p>Une super recette de crêpes</p>
     </div>
   </article>`;
-});
+}); */
+
+//On va chercher la donnée sur l'url
+fetch("https://fakestoreapi.com/products")
+  .then((res) => {
+    //On récupère la donnée json renvoyée par fakestoreapi
+    return res.json();
+  })
+  .then((json) => {
+    //On vient ajouter des <articles></articles> pour chaque élément renvoyé par fakestoreapi
+    const container = document.querySelector(".container");
+    container.innerHTML = json
+      .map((article) => {
+        return `<article class="item">
+      <img
+        src="${article.image}"
+      />
+      <div class="item-content">
+        <h2>${article.title}</h2>
+        <p>${article.description}</p>
+      </div>
+    </article>`;
+      })
+      .join("");
+
+    /* On récupère tous les <article></article> de la page sous forme de tableau */
+    const articles = document.querySelectorAll("article");
+    console.log(articles);
+
+    /* Pour chaque <article></article> dans notre tableau,
+on vient gérer l'évenement "click" avec la fonction handleClick */
+    articles.forEach((article) => {
+      article.onclick = handleClick;
+    });
+  })
+  .catch((error) => {
+    //en cas d'erreur sur la requête ou dans notre code
+    const container = document.querySelector(".container");
+    container.innerHTML = "<p>Une erreur s'est produite</p>";
+    console.error(error);
+  });
 
 /* on reçoit en paramètre l'évenement click */
 const handleClick = (event) => {
@@ -37,15 +75,21 @@ const handleClick = (event) => {
   alert(title.innerHTML);
 };
 
-/* On récupère tous les <article></article> de la page sous forme de tableau */
-const articles = document.querySelectorAll("article");
-console.log(articles);
-
-/* Pour chaque <article></article> dans notre tableau,
-on vient gérer l'évenement "click" avec la fonction handleClick */
-articles.forEach((article) => {
-  article.onclick = handleClick;
-});
+fetch(
+  "https://img.cuisineaz.com/660x660/2015/01/29/i113699-photo-de-crepe-facile.jpeg"
+)
+  .then((response) => {
+    console.log(response);
+    return response.blob();
+  })
+  .then((blob) => {
+    console.log(blob);
+    const url = URL.createObjectURL(blob);
+    const imgs = document.querySelectorAll("article img");
+    imgs.forEach((img) => {
+      img.src = url;
+    });
+  });
 
 new Promise((resolve, reject) => {
   try {
