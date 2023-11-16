@@ -26,6 +26,7 @@ form.onsubmit = (event) => {
   localStorage.setItem("todos", JSON.stringify(todolist));
 };
 
+//Affichage de base
 const initialTodos = localStorage.getItem("todos");
 if (initialTodos) {
   const todos = JSON.parse(initialTodos);
