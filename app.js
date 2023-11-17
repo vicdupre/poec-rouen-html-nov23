@@ -3,12 +3,12 @@ const list = document.querySelector("ul");
 
 form.onsubmit = (event) => {
   event.preventDefault();
-
   const formData = new FormData(form);
   const data = Object.fromEntries(formData);
   // { title : "Faire les courses" }
 
-  list.innerHTML += `<li>${data.title}</li>`; //list.innerHTML += "<li>" + data.title + "</li>"
+  list.innerHTML += `<li>${data.title}</li>`;
+  //list.innerHTML = list.innerHTML +  "<li>" + data.title + "</li>"
 
   //Crée un tableau
   let todolist = [];
@@ -16,7 +16,7 @@ form.onsubmit = (event) => {
   //Je récupère les éléments du local storage
   const savedTodos = localStorage.getItem("todos");
 
-  if (savedTodos) {
+  if (savedTodos != null) {
     todolist = JSON.parse(savedTodos);
   }
   //J'ajoute le nouveau todo à mon tableau
