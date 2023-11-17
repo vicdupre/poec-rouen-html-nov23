@@ -1,5 +1,8 @@
+import listItem from "./listItem.js";
+
 const form = document.querySelector("form");
 const list = document.querySelector("ul");
+const emptyButton = document.querySelector("#emptyList");
 
 form.onsubmit = (event) => {
   event.preventDefault();
@@ -7,7 +10,7 @@ form.onsubmit = (event) => {
   const data = Object.fromEntries(formData);
   // { title : "Faire les courses" }
 
-  list.innerHTML += `<li>${data.title}</li>`;
+  list.innerHTML += listItem(data);
   //list.innerHTML = list.innerHTML +  "<li>" + data.title + "</li>"
 
   //Crée un tableau
@@ -31,6 +34,11 @@ const initialTodos = localStorage.getItem("todos");
 if (initialTodos) {
   const todos = JSON.parse(initialTodos);
   todos.forEach((todo) => {
-    list.innerHTML += `<li>${todo.title}</li>`;
+    list.innerHTML += listItem(todo);
   });
 }
+
+emptyButton.onclick = (event) => {
+  localStorage.removeItem("todos");
+  list.innerHTML = "";
+};
