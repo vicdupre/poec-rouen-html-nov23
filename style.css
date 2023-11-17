@@ -45,3 +45,24 @@ body {
 form {
   margin-bottom: 15px;
 }
+
+.pres {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.pres div {
+  width: 100px;
+  height: 100px;
+  color: #fff;
+  font-size: 2em;
+}
+
+.first {
+  background-color: red;
+  margin-right: 30px;
+}
+.second {
+  background-color: blue;
+  padding-left: 30px;
+}
