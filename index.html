@@ -4,22 +4,49 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To do list</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
+  <body class="container">
     <h1>Ma to do list</h1>
     <form>
       <!-- Créer un item à faire -->
-      <label for="title">Nom de la tache</label>
-      <input type="text" name="title" id="title" required />
-      <button type="submit">Enregistrer</button>
+      <div class="input-field">
+        <label for="title">Nom de la tache</label>
+        <input type="text" name="title" id="title" required />
+      </div>
+      <p>
+        <label for="urgent">
+          <input id="urgent" type="checkbox" name="urgent" />
+          <span>Urgent</span>
+        </label>
+      </p>
+
+      <button class="btn waves-effect waves-light" type="submit">
+        Enregistrer
+      </button>
     </form>
     <div class="content">
-      <button id="emptyList">Vider la liste</button>
+      <button
+        class="btn waves-effect waves-light deep-orange accent-4"
+        id="emptyList"
+      >
+        Vider la liste
+      </button>
+      <button
+        class="btn waves-effect waves-light deep-orange accent-4"
+        id="emptyCompleted"
+      >
+        Supprimer les éléments terminés
+      </button>
       <ul>
         <!--Afficher mes items ici-->
       </ul>
     </div>
     <script src="app.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 </html>
